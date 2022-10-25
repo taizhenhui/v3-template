@@ -19,7 +19,6 @@
 
 <script setup lang='ts'>
 import { useAppStore, useUserStoer } from '@/store'
-import { Expand, User } from '@element-plus/icons-vue'
 import { useRoute, useRouter } from 'vue-router'
 import CollapseButton from '@/components/CollapseButton.vue'
 const userStore = useUserStoer()

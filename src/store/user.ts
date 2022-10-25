@@ -1,9 +1,11 @@
 import { defineStore } from "pinia";
 import type { UserType } from '@/api/types'
 import { me } from '@/api/modules/user'
+import { usePermissionStore } from '@/store'
 type UserState = {
   currentUser: UserType | null
 }
+
 export const useUserStoer = defineStore('user', {
   state: (): UserState => {
     return {
@@ -13,6 +15,8 @@ export const useUserStoer = defineStore('user', {
   actions: {
     async fetchCurrentUser() {
       this.currentUser = await me()
+      // Todo:超级管理员机制
+      usePermissionStore().generateRoutes(this.currentUser.permissions)
     }
   },
   persist: {

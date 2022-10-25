@@ -12,26 +12,20 @@
         text-color="#fff"
         :collapse-transition="false"
       >
-        <el-sub-menu index="1" class="sub_menu_sty">
-          <template #title>
-            <el-icon><location /></el-icon>
-            <span>Navigator One</span>
-          </template>
-          <el-menu-item index="1-1" @click="selectItem">item one</el-menu-item>
-          <el-menu-item index="1-2" @click="selectItem">item two</el-menu-item>
-        </el-sub-menu>
+        <sidebar-item v-for="item in permissionStore.menuRoutes" :key="item.name" :item="item"/>
       </el-menu>
     </el-aside>
   </div>
 </template>
 
 <script setup lang='ts'>
-import { useAppStore } from "@/store";
-import { Location } from "@element-plus/icons-vue";
+import { useAppStore, usePermissionStore } from "@/store";
+import SidebarItem from "@/components/SidebarItem.vue"
 const appStore = useAppStore();
 const selectItem = (val) => {
   appStore.activeIndex = val.index;
 };
+const permissionStore = usePermissionStore()
 </script>
 
 <style scoped lang='scss'>

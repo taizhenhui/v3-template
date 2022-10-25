@@ -12,8 +12,6 @@
           <el-form-item prop="username">
             <el-input v-model="loginForm.username" :prefix-icon="User" placeholder="请输入用户名"/>
           </el-form-item>
-          
-          
         
           <el-form-item prop="password">
             <el-input v-model="loginForm.password" type="password" :prefix-icon="Connection" placeholder="请输入密码"/>
@@ -29,7 +27,6 @@
 <script setup lang='ts'>
 import { onMounted, reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
-import { User, Connection } from '@element-plus/icons-vue'
 import { useAppStore, useUserStoer} from '@/store'
 import { useRouter } from 'vue-router'
 
