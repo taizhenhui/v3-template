@@ -1,21 +1,24 @@
 import { defineStore } from "pinia";
-import type { StoreDefinition } from "pinia";
 import { createToken } from '@/api/modules/token'
 import type { TokenRequest } from '@/api/types'
 import { useUserStoer } from "./user";
 
 type AppStore = {
-  token:string,
+  token: string,
+  menuCollapse: boolean,
+  activeIndex: string
 }
-export const useAppStore: StoreDefinition<string, AppStore> = defineStore('app',{
-  state:() => {
+export const useAppStore = defineStore('app', {
+  state: (): AppStore => {
     return {
-      token:''
+      token: '',
+      menuCollapse: false,
+      activeIndex: ''
     }
   },
   actions: {
     async login(loginForm: TokenRequest): Promise<void> {
-       this.token = await createToken(loginForm)
+      this.token = await createToken(loginForm)
     },
     async logout(): Promise<void> {
       const userStore = useUserStoer()
@@ -24,6 +27,6 @@ export const useAppStore: StoreDefinition<string, AppStore> = defineStore('app',
     }
   },
   persist: {
-    enabled: true , // 这个配置代表存储生效，而且是整个store都存储
+    enabled: true, // 这个配置代表存储生效，而且是整个store都存储
   }
 })

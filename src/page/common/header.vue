@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-header class="header-box">
-      <collapse-button />
+      <collapse-button v-model:collapse="appStore.menuCollapse"/>
       <el-dropdown trigger="click" class="header-r" @command="handleCommand">
         <el-button text >
           <el-icon  color="#999"><User /></el-icon>

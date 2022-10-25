@@ -1,7 +1,7 @@
 <template>
   <div class="common-layout">
     <el-container class="container-box">
-      <el-aside width="200px" class="Aside">边侧栏</el-aside>
+      <side-bar />
       <el-container class="con-box">
         <Header class="Header"/>
         <el-main>
@@ -14,6 +14,7 @@
 
 <script setup lang='ts'>
 import Header from './header.vue'
+import SideBar from './sidebar.vue'
 </script>
 
 <style scoped lang='scss'>
