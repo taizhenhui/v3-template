@@ -32,7 +32,7 @@ console.log(porps.item,'item');
 
 const appStore = useAppStore();
 const router = useRouter()
-const selectItem = (val) => {
+const selectItem = (val: { index: string; }) => {
   appStore.activeIndex = val.index;
   router.push({ name: val.index })
 };
@@ -40,7 +40,7 @@ const selectItem = (val) => {
 
 <style scoped lang='scss'>
 
-::v-deep .closeFont{
+::v-deep(.closeFont){
   .el-sub-menu__title{
     .el-sub-menu__icon-arrow, span{
       display: none;

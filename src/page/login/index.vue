@@ -10,11 +10,11 @@
           class="demo-ruleForm"
         >
           <el-form-item prop="username">
-            <el-input v-model="loginForm.username" :prefix-icon="User" placeholder="请输入用户名"/>
+            <el-input v-model="loginForm.username" prefix-icon="User" placeholder="请输入用户名"/>
           </el-form-item>
         
           <el-form-item prop="password">
-            <el-input v-model="loginForm.password" type="password" :prefix-icon="Connection" placeholder="请输入密码"/>
+            <el-input v-model="loginForm.password" type="password" prefix-icon="Connection" placeholder="请输入密码"/>
           </el-form-item>
 
         </el-form>
@@ -29,6 +29,7 @@ import { onMounted, reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useAppStore, useUserStoer} from '@/store'
 import { useRouter } from 'vue-router'
+import type { TokenRequest } from '@/api/types'
 
 const ruleFormRef = ref<FormInstance>()
 const loginForm = reactive<TokenRequest>({

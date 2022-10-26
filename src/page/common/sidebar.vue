@@ -22,9 +22,6 @@
 import { useAppStore, usePermissionStore } from "@/store";
 import SidebarItem from "@/components/SidebarItem.vue"
 const appStore = useAppStore();
-const selectItem = (val) => {
-  appStore.activeIndex = val.index;
-};
 const permissionStore = usePermissionStore()
 </script>
 
@@ -38,7 +35,7 @@ const permissionStore = usePermissionStore()
 .el-menu {
   border-right: 0;
 }
-::v-deep .el-sub-menu__title:hover {
+::v-deep(.el-sub-menu__title:hover) {
   background-color: #434a50 !important;
 }
 .title_sty {
